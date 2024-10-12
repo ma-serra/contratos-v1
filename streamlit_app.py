@@ -3,10 +3,11 @@ from datetime import datetime
 from docx import Document
 import io
 
+
 def gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload):
     # Obtém a data atual
     data_atual = datetime.now()
-    
+
     # Cria uma lista com os meses em português
     meses = [
         "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
@@ -60,10 +61,12 @@ def gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload):
 
     return output
 
+
 # Interface em Streamlit
-st.title("Gerador de Contratos")  
-st.subheader("Envie seu arquivo Word para rápida personalização. Coloque as TAGS no molde para que o sistema possa substituir:")
-st.subheader("'{{nome_cliente}}' , {{cpf_cliente}}, {{endereco}}, {{cep}}")
+st.title("Gerador de Contratos")
+st.subheader("Envie seu arquivo Word para rápida personalização.")Coloque as TAGS no molde para que o sistema possa substituir:
+st.write("Coloque as TAGS no molde para que o sistema possa substituir, NESSE FORMATO:")
+st.write("{{nome_cliente}} , {{cpf_cliente}}, {{endereco}}, {{cep}}")
 # Campos do formulário
 nome_cliente = st.text_input("Nome do Cliente")
 cpf_cliente = st.text_input("CPF do Cliente")
@@ -71,14 +74,16 @@ endereco = st.text_input("Endereço")
 cep = st.text_input("CEP")
 
 # Campo para upload do documento
-documento_upload = st.file_uploader("Faça o upload do seu arquivo .docx", type="docx")
+documento_upload = st.file_uploader(
+    "Faça o upload do seu arquivo .docx", type="docx")
 
 # Botão para gerar o contrato
 if st.button("Gerar Contrato"):
     if nome_cliente and cpf_cliente and endereco and cep and documento_upload:
         # Gera o contrato e recebe o arquivo modificado
-        arquivo_contrato = gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload)
-        
+        arquivo_contrato = gerar_contrato(
+            nome_cliente, cpf_cliente, endereco, cep, documento_upload)
+
         # Exibe um botão para baixar o arquivo gerado
         st.download_button(
             label="Baixar Contrato Modificado",
