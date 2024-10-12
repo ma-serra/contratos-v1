@@ -3,7 +3,6 @@ from datetime import datetime
 from docx import Document
 import io
 
-# Função para gerar o contrato
 def gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload):
     # Obtém a data atual
     data_atual = datetime.now()
@@ -62,8 +61,9 @@ def gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload):
     return output
 
 # Interface em Streamlit
-st.title("Gerador de Contratos")
-
+st.title("Gerador de Contratos")  
+st.subheader("Envie seu arquivo Word para rápida personalização. Coloque as TAGS no molde para que o sistema possa substituir:")
+st.subheader("'{{nome_cliente}}' , {{cpf_cliente}}, {{endereco}}, {{cep}}")
 # Campos do formulário
 nome_cliente = st.text_input("Nome do Cliente")
 cpf_cliente = st.text_input("CPF do Cliente")
