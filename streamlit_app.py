@@ -64,7 +64,7 @@ def gerar_contrato(nome_cliente, cpf_cliente, endereco, cep, documento_upload):
 
 # Interface em Streamlit
 st.title("Gerador de Contratos")
-st.subheader("Envie seu arquivo Word para rápida personalização.")Coloque as TAGS no molde para que o sistema possa substituir:
+st.subheader("Envie seu arquivo Word para rápida personalização.")
 st.write("Coloque as TAGS no molde para que o sistema possa substituir, NESSE FORMATO:")
 st.write("{{nome_cliente}} , {{cpf_cliente}}, {{endereco}}, {{cep}}")
 # Campos do formulário
